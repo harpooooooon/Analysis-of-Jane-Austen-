@@ -61,11 +61,10 @@ word_cors <- austen_section_words %>%
 
 ### Plotting frequecy of words most assoicated with:
 
-  >
-    * elizabeth
-    * pounds
-    * married
-    * pride
+   *  elizabeth
+   *  pounds
+   *  married
+   *  pride
 
 ```{r correlation between associated words, message=FALSE}
 word_cors %>%
