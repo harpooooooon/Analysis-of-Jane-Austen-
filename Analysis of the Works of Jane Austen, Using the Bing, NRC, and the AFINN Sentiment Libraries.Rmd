@@ -9,7 +9,7 @@ library(janeaustenr)
 library(tidytext)
 ```
 
-### grouping all the works of jane austen by books (6)
+### Grouping all the works of jane austen by books (6)
   > 
    * Sense & Sensibility 
    * Pride & Prejudice   
@@ -18,8 +18,7 @@ library(tidytext)
    * Northanger Abbey    
    * Persuasion
 
-##### segmenting each book by chapters
-
+###### segmenting each book by chapters
 ###### unnesting the token words
 
 ```{r message=FALSE, warning=FALSE}
@@ -42,7 +41,7 @@ pride_prejudice <- tidy_books %>%
 ### Appling the sentiment libraries to Pride and Prejudice
 
 
-Applying the afinn library to Pride and Prejudice
+##### Applying the AFINN sentiment library to Pride and Prejudice
 ```{r message=FALSE, warning=FALSE}
 afinn <- pride_prejudice %>% 
   inner_join(get_sentiments("afinn")) %>% 
@@ -50,8 +49,7 @@ afinn <- pride_prejudice %>%
   summarise(sentiment = sum(score)) %>% 
   mutate(method = "AFINN")
 ```
-
-Apply both the Bing and NRC sentiment libraries to Pride and Predujice
+##### Apply both the Bing and NRC sentiment libraries
 ```{r message=FALSE, warning=FALSE}
 bing_and_nrc <- bind_rows(pride_prejudice %>% 
                             inner_join(get_sentiments("bing")) %>%
@@ -68,7 +66,7 @@ bing_and_nrc <- bind_rows(pride_prejudice %>%
 
 ### Plotting the different sentiment libraries 
 
-Combining the affin and bing_and_nrc dataframe
+###### Combining the affin and bing_and_nrc dataframe
 ```{r message=FALSE, warning=FALSE}
 bind_rows(afinn, bing_and_nrc) %>%
   ggplot(aes(index, sentiment, fill = method)) +
