@@ -18,9 +18,9 @@ library(tidytext)
    * Northanger Abbey    
    * Persuasion
 
-#####segmenting each book by chapters
+##### segmenting each book by chapters
 
-#####unnesting the token words
+###### unnesting the token words
 
 ```{r message=FALSE, warning=FALSE}
 tidy_books <- austen_books() %>%
