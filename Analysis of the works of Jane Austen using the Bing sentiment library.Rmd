@@ -11,7 +11,7 @@ library(tidytext)
 ```
 
 
-### grouping all the works of jane austen by books (6)
+### Grouping all the works of jane austen by books (6)
   > 
    * Sense & Sensibility 
    * Pride & Prejudice   
@@ -20,9 +20,8 @@ library(tidytext)
    * Northanger Abbey    
    * Persuasion
 
-#####segmenting each book by chapters
-
-#####unnesting the token words
+##### Segmenting each book by chapters
+##### Unnesting the token words
 ```{r message=FALSE, warning=FALSE}
 tidy_books <- austen_books() %>%
   group_by(book) %>%
@@ -34,11 +33,9 @@ tidy_books <- austen_books() %>%
 ```
 
 
-### apply thing the 'bing' sentiment libary to her all 6 books
-
-split each book by sentence
-
-count the posative and sentiment word per sentence
+### Apply thing the 'bing' sentiment libary to her all 6 books
+##### Split each book by sentence
+##### Count the posative and sentiment word per sentence
 
 sentiment = frequency of posative setement - frequency of negative setement  
 ```{r message=FALSE, warning=FALSE}
@@ -50,7 +47,7 @@ total_bing_sentiment <- tidy_books %>%
 ```
 
 
-### graphing the sentiment of the sentences of text 
+### Graphing the sentiment of the sentences of text 
 ```{r}
 ggplot(total_bing_sentiment, aes(index, sentiment, fill = book), xlab = "line numbers") +
   geom_col(show.legend = FALSE) +
